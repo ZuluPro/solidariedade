@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="history">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <form method="POST" action="{% url "contact" %}" class="form-horizontal">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="{{ form.name.label }}_id">{{ form.name.label }} *</label>
+          <div class="col-md-9">
+           {{ form.name }}
+           {% if form.name.errors %}
+           <div class="alert alert-danger" role="alert">{{ form.name.errors }}</div>
+           {% endif %}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="{{ form.email.label }}_id">{{ form.email.label }} *</label>
+          <div class="col-md-9">
+           {{ form.email }}
+           {% if form.email.errors %}
+           <div class="alert alert-danger" role="alert">{{ form.email.errors }}</div>
+           {% endif %}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="{{ form.phone.label }}_id">{{ form.phone.label }}</label>
+          <div class="col-md-9">
+           {{ form.phone }}
+           {% if form.phone.errors %}
+           <div class="alert alert-danger" role="alert">{{ form.phone.errors }}</div>
+           {% endif %}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="{{ form.message.label }}_id">{{ form.message.label }} *</label>
+          <div class="col-md-9">
+           {{ form.message }}
+           {% if form.message.errors %}
+           <div class="alert alert-danger" role="alert">{{ form.message.errors }}</div>
+           {% endif %}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <address>
+        <strong>Adresse administrative</strong><br>
+        Chez madame Da Costa<br>
+        62 rue Bernard Palissy,<br>
+        Les maraichers Batiment D<br>
+        77210 Avon, France
+      </address>
+
+      <address>
+        <strong>Siège sociale</strong><br>
+        27 les prés d'andy<br>
+        77950 Saint-Germain Laxis, France<br>
+      </address>
+      <a href="mailto:{{ settings.CONTACT_EMAIL }}">Contactez-nous par email !</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="row brown">
+  <h1>Notre engagement</h1>
+</div>
+<div class="history">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-1">
+     <ul id="engagement-tabs" class="nav nav-pills nav-stacked">
+       <li role="presentation" class="{% if active == 'children' %}active{% endif %}"><a href="#tab-children" aria-controls="tab-children" role="tab" data-toggle="tab">Les enfants</a></li>
+       <li role="presentation" class="{% if active == 'elders' %}active{% endif %}"><a href="#tab-elders" aria-controls="tab-elders" role="tab" data-toggle="tab">La population viellissante</a></li>
+       <li role="presentation" class="{% if active == 'fragiles' %}active{% endif %}"><a href="#tab-fragiles" aria-controls="tab-fragiles" role="tab" data-toggle="tab">La population fragile</a></li>
+       <li role="presentation" class="{% if active == 'family' %}active{% endif %}"><a href="#tab-family" aria-controls="tab-family" role="tab" data-toggle="tab">La famille</a></li>
+     </ul>
+    </div>
+    <div class="col-md-7">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade{% if active == 'children' %} in active{% endif %}" id="tab-children">{% include "showcase/_children.html" %}</div>
+        <div role="tabpanel" class="tab-pane fade{% if active == 'elders' %} in active{% endif %}" id="tab-elders">{% include "showcase/_elders.html" %}</div>
+        <div role="tabpanel" class="tab-pane fade{% if active == 'fragiles' %} in active{% endif %}" id="tab-fragiles">{% include "showcase/_fragiles.html" %}</div>
+        <div role="tabpanel" class="tab-pane fade{% if active == 'family' %} in active{% endif %}" id="tab-family">{% include "showcase/_family.html" %}</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.container -->
+{% endblock %}

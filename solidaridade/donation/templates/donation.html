@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="row brown">
+  <h1>{% trans "Faire un don" %}</h1>
+</div>
+<div class="history">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2">
+      <h2>Par chèque:</h2>
+      <address>
+        <strong>A l'ordre de "ASFP"</strong><br>
+        27 les prés d'andy<br>
+        77950 Saint-Germain Laxis, France<br>
+      </address>
+    </div>
+    <div class="col-md-3">
+      <h2>Par virement:</h2>
+    </div>
+    <div class="col-md-3">
+      <h2>Adhérez:</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
