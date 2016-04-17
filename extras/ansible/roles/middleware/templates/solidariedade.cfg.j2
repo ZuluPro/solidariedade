@@ -1,0 +1,31 @@
+[DEFAULT]
+env = {{ env }}
+server_url = {{ server_url }}
+static_url = /static/
+static_root = {{ static_root }}
+media_url = https://{{ server_url }}/media/
+media_root = {{ media_root }}
+backup_dir = {{ backup_dir }}
+secret_key = {{ secret_key }}
+
+default_db_engine = django.db.backends.mysql
+default_db_name = solidariedade
+default_db_user = solidariedade
+default_db_password = {{ db_password }}
+{% if 'all' in groups and groups['all'] %}
+default_db_host = {{ hostvars[groups['all'][0]]['mysql_bind_addr'] }}
+{% elif 'database' in groups %}
+default_db_host = {{ hostvars[groups['database'][0]]['mysql_bind_addr'] }}
+{% else %}
+default_db_host = {{ No_db_host }}
+{% endif %}
+default_db_port = 3306
+
+cache_backend = redis_cache.cache.RedisCache
+{% if 'all' in groups and groups['all'] %}
+cache_location = {{ hostvars[groups['all'][0]]['redis_bind_addr'] }}:6379:0
+{% else %}
+cache_location = {{ hostvars[groups['cache'][0]]['redis_bind_addr'] }}:6379:0
+{% endif %}
+
+session_engine = django.contrib.sessions.backends.cache

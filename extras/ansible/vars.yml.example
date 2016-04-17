@@ -1,0 +1,11 @@
+---
+ssh_public_key_file: ~/.ssh/id_dsa.pub
+solidariedade_version: master
+static_root: /var/solidariedade/static
+media_root: /var/solidariedade/media
+root_db_password: root
+db_password: solidariedade
+secret_key: 
+# If empty, will be created
+ssl_cert:
+ssl_key:

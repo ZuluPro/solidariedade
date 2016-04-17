@@ -1,0 +1,4 @@
+---
+dhparam_pem_addr: /etc/ssl/certs/dhparam.pem
+ssl_cert_addr: /etc/ssl/solidariedade-unified.crt
+ssl_key_addr: /etc/ssl/private/solidariedade.key

@@ -1,0 +1,19 @@
+[uwsgi]
+socket = {{ uwsgi_bind_addr }}:{{ uwsgi_bind_port }}
+master = True
+
+chdir = {{ solidariedade_basedir.stdout }}
+env = DJANGO_SETTINGS_MODULE=settings
+module = wsgi:application
+home = {{ solidariedade_venv }}
+
+threads = 1
+processes = 4
+# stats = 127.0.0.1:9191
+
+uid = solidariedade
+gid = solidariedade
+
+vacuum = true
+max-requests = 5000
+

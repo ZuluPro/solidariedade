@@ -1,0 +1,35 @@
+server {
+    listen 80;
+    server_name media.{{ server_url }}; 
+
+    # Log
+    access_log off; log_not_found off;
+
+    location ~ ^/media/ {
+        root  /var/www/solidariedade/;
+        autoindex off;
+        add_header Pragma public;
+        add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name media.{{ server_url }}; 
+
+    # Log
+    access_log off; log_not_found off;
+
+    # SSL
+    ssl on;
+    ssl_certificate {{ ssl_cert_addr }};
+    ssl_certificate_key {{ ssl_key_addr }};
+    ssl_dhparam {{ dhparam_pem_addr }};
+
+    location ~ ^/media/ {
+        root  /var/www/solidariedade/;
+        autoindex off;
+        add_header Pragma public;
+        add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+    }
+}

@@ -1,0 +1,4 @@
+---
+solidariedade_user: solidariedade
+solidariedade_home: /var/solidariedade
+solidariedade_venv: /var/solidariedade/venv

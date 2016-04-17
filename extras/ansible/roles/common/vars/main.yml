@@ -1,0 +1,4 @@
+---
+timezone: 'Europe/Paris'
+uwsgi_bind_port: 3032
+server_url: solidariedade-france-portugal.org
