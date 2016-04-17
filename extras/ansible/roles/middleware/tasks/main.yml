@@ -35,41 +35,24 @@
 
 - name: Install Django Python MySQL and Redis clients
   pip: name={{ item }} virtualenv="{{ solidariedade_venv }}"
-  remote_user: "{{ solidariedade_user }}"
+  become: yes
+  become_user: "{{ solidariedade_user }}"
   with_items:
-    - 'django<1.9'
+    - 'django==1.9'
     - MySQL-python
     - django-redis
-    - 'git+http://github.com/ojii/pymaging.git#egg=pymaging'
-    - 'git+http://github.com/ojii/pymaging-png.git#egg=pymaging-png'
-    - 'git+http://github.com/ZuluPro/django-cv#egg=django-cv'
 
 - name: Git pull blog
   git: repo=https://github.com/ZuluPro/solidariedade.git
-       dest=/tmp/src/solidariedade version={{ solidariedade_version }}
-  remote_user: "{{ solidariedade_user }}"
-  register: git_pull_solidariedade
-
-- name: Install solidariedade requirements
-  pip: requirements=/tmp/src/solidariedade/requirements.txt
-       virtualenv="{{ solidariedade_venv }}"
-  remote_user: "{{ solidariedade_user }}"
-
-- name: Install solidariedade
-  shell: "{{ solidariedade_venv }}/bin/python setup.py install"
-  args:
-     chdir: /tmp/src/solidariedade
-  remote_user: "{{ solidariedade_user }}"
-  when: git_pull_solidariedade.changed
+       dest={{ solidariedade_home }}/src/ version={{ solidariedade_version }}
+  become: yes
+  become_user: "{{ solidariedade_user }}"
   notify: restart uwsgi
 
-- name: Get package directory
-  shell: "{{ solidariedade_venv }}/bin/solidariedade settings | awk '/BASE_DIR/ {print $3}'"
+- name: Install solidariedade requirements
+  pip: requirements={{ solidariedade_home }}/src/requirements.txt
+       virtualenv="{{ solidariedade_venv }}"
   remote_user: "{{ solidariedade_user }}"
-  register: solidariedade_basedir
-  changed_when: False
-  environment:
-    PATH: "{{ solidariedade_venv }}/bin/:{{ ansible_env.PATH }}"
 
 - name: Setup solidariedade configuration
   template: src=solidariedade.cfg.j2 dest=/etc/solidariedade.cfg mode=0644 owner=root
@@ -87,14 +70,14 @@
         mode=0740
 
 - name: Collect static files
-  command: "{{ solidariedade_venv }}/bin/solidariedade collectstatic --noinput"
+  shell: ". {{ solidariedade_venv }}/bin/activate && {{ solidariedade_home }}/src/solidaridade/manage.py collectstatic --noinput"
   remote_user: "{{ solidariedade_user }}"
   register: collectstatic
   run_once: true
   changed_when: "not '0 static files copied to' in collectstatic.stdout"
 
 - name: Deploy database 
-  command: "{{ solidariedade_venv }}/bin/solidariedade migrate --noinput"
+  shell: ". {{ solidariedade_venv }}/bin/activate && {{ solidariedade_home }}/src/solidaridade/manage.py migrate --noinput"
   remote_user: "{{ solidariedade_user }}"
   register: migration
   changed_when: "not 'No migrations to apply.' in migration.stdout"

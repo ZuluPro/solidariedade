@@ -1,6 +1,6 @@
 from django import forms
 from django.core.mail import send_mail
-from solidaridade import settings
+import settings
 
 
 class ContactForm(forms.Form):
