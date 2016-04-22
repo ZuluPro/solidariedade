@@ -212,7 +212,7 @@ body {
   border-color: transparent;
   border-bottom: #C66D34;
   border-bottom-width: 10px;
-  border-bottom-style: inset;
+  border-bottom-style: solid;
 }
 .top-bar .nav-tabs>li.dropdown>ul {
   width: 100%;
