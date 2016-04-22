@@ -2,17 +2,17 @@
 {% load i18n static %}
 
 {% block body %}
-<div class="row brown">
+<div class="brown">
   <h1>Notre engagement</h1>
 </div>
-<div class="history">
+<div class="container-light container-fluid">
   <div class="row">
     <div class="col-md-3 col-md-offset-1">
      <ul id="engagement-tabs" class="nav nav-pills nav-stacked">
-       <li role="presentation" class="{% if active == 'children' %}active{% endif %}"><a href="#tab-children" aria-controls="tab-children" role="tab" data-toggle="tab">Les enfants</a></li>
-       <li role="presentation" class="{% if active == 'elders' %}active{% endif %}"><a href="#tab-elders" aria-controls="tab-elders" role="tab" data-toggle="tab">La population viellissante</a></li>
-       <li role="presentation" class="{% if active == 'fragiles' %}active{% endif %}"><a href="#tab-fragiles" aria-controls="tab-fragiles" role="tab" data-toggle="tab">La population fragile</a></li>
-       <li role="presentation" class="{% if active == 'family' %}active{% endif %}"><a href="#tab-family" aria-controls="tab-family" role="tab" data-toggle="tab">La famille</a></li>
+         <li role="presentation" class="{% if active == 'children' %}active{% endif %}"><a href="#tab-children" aria-controls="tab-children" role="tab" data-toggle="tab">{% trans "Les enfants" %}</a></li>
+         <li role="presentation" class="{% if active == 'elders' %}active{% endif %}"><a href="#tab-elders" aria-controls="tab-elders" role="tab" data-toggle="tab">{% trans "La population viellissante" %}</a></li>
+         <li role="presentation" class="{% if active == 'fragiles' %}active{% endif %}"><a href="#tab-fragiles" aria-controls="tab-fragiles" role="tab" data-toggle="tab">{% trans "La population fragile" %}</a></li>
+         <li role="presentation" class="{% if active == 'family' %}active{% endif %}"><a href="#tab-family" aria-controls="tab-family" role="tab" data-toggle="tab">{% trans "La famille" %}</a></li>
      </ul>
     </div>
     <div class="col-md-7">

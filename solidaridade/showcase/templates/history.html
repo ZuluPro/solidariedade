@@ -2,19 +2,17 @@
 {% load i18n static %}
 
 {% block body %}
-<div class="history">
+<div class="brown">
+     <h1>{% trans "Notre histoire" %}</h1>
+</div>
+<div class="container-light container-fluid">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h1>Notre histoire</h1>
-      <i>Au départ, il y a les racines, l’attachement pour son pays, son histoire et son peuple. 
-      Et un jour, l’espoir d’un meilleur lendemain pour eux, pour nous tous.
-      Angélique DA COSTA, présidente de Solidariedade.</i>
+     <i>{% trans "Au départ, il y a les racines, l’attachement pour son pays, son histoire et son peuple. Et un jour, l’espoir d’un meilleur lendemain pour eux, pour nous tous. Angélique DA COSTA, présidente de Solidariedade." %}</i>
       <br><br>
-      <h3>2016:
-      A.S.F.P est lancé!
-</h3>
+      <h3>{% trans "2016: A.S.F.P est lancé!" %}</h3>
       <p>
-      Solidariedade France Portugal est une association française née d’une initiative humanitaire et solidaire. Les premières actions de l’association se concentrent sur l’aide à la population locale et un soutien aux personnes les plus démunies dans les régions nord du Portugal.
+      {% trans "Solidariedade France Portugal est une association française née d’une initiative humanitaire et solidaire. Les premières actions de l’association se concentrent sur l’aide à la population locale et un soutien aux personnes les plus démunies dans les régions nord du Portugal." %}
       </p>
       <center>
       <img src="{% static "img/logo.png" %}" height="300px" align="middle">

@@ -2,95 +2,90 @@
 {% load i18n static %}
 
 {% block body %}
-<div>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item main1 active"> 
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{% blocktrans %}Nous accompagnons la population vieillissante{% endblocktrans %}</h1>
-              <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=elders" role="button">{% trans "Voir plus" %}</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item main2">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{% trans "Mais aussi un soutien au bien-être de tous les enfants" %}</h1>
-              <p>{% blocktrans %}{% endblocktrans %}</p>
-              <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=children" role="button">{% trans "Voir plus" %}</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item main3">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>{% trans "Et une aide à toutes les populations fragiles" %}</h1>
-              <p></p>
-              <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=fragiles" role="button">{% trans "Voir plus" %}</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <!-- Indicators -->
+   <ol class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+     <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner" role="listbox">
+     <div class="item main1 active"> 
+       <div class="container">
+         <div class="carousel-caption">
+           <h1>{% trans "Nous accompagnons la population vieillissante" %}</h1>
+           <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=elders" role="button">{% trans "Voir plus" %}</a></p>
+         </div>
+       </div>
+     </div>
+     <div class="item main2">
+       <div class="container">
+         <div class="carousel-caption">
+           <h1>{% trans "Mais aussi un soutien au bien-être de tous les enfants" %}</h1>
+           <p>{% blocktrans %}{% endblocktrans %}</p>
+           <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=children" role="button">{% trans "Voir plus" %}</a></p>
+         </div>
+       </div>
+     </div>
+     <div class="item main3">
+       <div class="container">
+         <div class="carousel-caption">
+           <h1>{% trans "Et une aide à toutes les populations fragiles" %}</h1>
+           <p></p>
+           <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=fragiles" role="button">{% trans "Voir plus" %}</a></p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- /.carousel -->
+
+<div class="container marketing">
+  <!-- START THE FEATURETTES -->
+  {% for portrait in portraits %}
+  <div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading">{{ portrait.title }}</h2>
+        <p class="lead">{{ portrait.excerpt }}</p>
+        <p><a class="btn btn-default" href="{{ portrait.get_absolute_url }}" role="button">Voir plus</a></p>
     </div>
-    <!-- /.carousel -->
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive center-block" src="{{ portrait.image.url }}">
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  {% endfor %}
 
+  <div class="row featurette">
+   <div class="col-md-7 col-md-push-5">
+     <h2 class="featurette-heading">{% trans "Il existe d'autres façon d'aider" %}</h2>
+     <ul>
+      <li>{% trans "Dépôt de vêtements dans les containers appropirés, disponible dans chaque ville" %}</li>
+      <li>{% trans "Faire des dons alimentaires aux associations locales ou internationnales" %}</li>
+      <li>{% trans "Don de mobiliers aux associations (Emmaüs)" %}</li>
+      <li>{% trans "Donner de son temps auprès de personnes dans le besoin" %}</li>
+     </ul>
+   </div>
+   <div class="col-md-5 col-md-pull-7">
+     <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+   </div>
+  </div>
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+  <hr class="featurette-divider">
 
-    <div class="container marketing">
-
-
-
-      <!-- START THE FEATURETTES -->
-      {% for portrait in portraits %}
-      <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">{{ portrait.title }}</h2>
-            <p class="lead">{{ portrait.excerpt }}</p>
-            <p><a class="btn btn-default" href="{{ portrait.get_absolute_url }}" role="button">Voir plus</a></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="{{ portrait.image.url }}">
-        </div>
-      </div>
-      <hr class="featurette-divider">
-      {% endfor %}
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Il existe d'autres façon d'aider</h2>
-          <ul>
-           <li>Dépôt de vêtements dans les containers appropirés, disponible dans chaque ville</li>
-           <li>Faire des dons alimentaires aux associations locales ou internationnales</li>
-           <li>Don de mobiliers aux associations (Emmaüs)</li>
-           <li>Donner de son temps auprès de personnes dans le besoin</li>
-          </ul>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Vous souhaitez aider ?<br>C'est facile !<br>Juste un clic</h2>
-          <a class="btn btn-primary">Aider</a>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-      <!-- /END THE FEATURETTES -->
+  <div class="row featurette">
+   <div class="col-md-7">
+     <h2 class="featurette-heading">
+      {% trans "Vous souhaitez aider ?" %}<br>
+      {% trans "C'est facile !" %}<br>
+      {% trans "Juste un clic" %}
+     </h2>
+     <a class="btn btn-primary">Aider</a>
+   </div>
+   <div class="col-md-5">
+     <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+   </div>
+  </div>
+  <!-- /END THE FEATURETTES -->
 </div><!-- /.container -->
 {% endblock %}

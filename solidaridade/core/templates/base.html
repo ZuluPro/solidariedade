@@ -39,18 +39,18 @@
           </a>
           <ul class="nav nav-tabs">
             <li role="presentation" class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Qui sommes-nous</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Qui sommes-nous" %}</a>
               <ul class="dropdown-menu">
-                <li><a href="{% url "history" %}">Notre histoire</a></li>
-                <li><a href="{% url "engagement" %}">Notre engagement</a></li>
-                <li><a href="{% url "values" %}">Nos valeurs</a></li>
-                <li><a href="#">Documents offciels</a></li>
+               <li><a href="{% url "history" %}">{% trans "Notre histoire" %}</a></li>
+               <li><a href="{% url "engagement" %}">{% trans "Notre engagement" %}</a></li>
+               <li><a href="{% url "values" %}">{% trans "Nos valeurs" %}</a></li>
+               <li><a href="#">{% trans "Documents offciels" %}</a></li>
               </ul>
             </li>
-            <li role="presentation"><a href="#">Nos actions</a></li>
-            <li role="presentation"><a href="{% url 'zinnia:entry_archive_index' %}">Blog</a></li>
-            <li role="presentation"><a href="{% url "contact" %}">Contact</a></li>
-            <li role="presentation"><a href="{% url "donation" %}">Vous souhaitez nous aider ?</a></li>
+            <li role="presentation"><a href="#">{% trans "Nos actions" %}</a></li>
+            <li role="presentation"><a href="{% url 'zinnia:entry_archive_index' %}">{% trans "Blog" %}</a></li>
+            <li role="presentation"><a href="{% url "contact" %}">{% trans "Contact" %}</a></li>
+            <li role="presentation"><a href="{% url "donation" %}">{% trans "Vous souhaitez nous aider ?" %}</a></li>
           </ul>
     </div>
 
@@ -61,7 +61,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <h3>Solidaridade France Portugal</h3>
+            <h3>Solidariedade France Portugal</h3>
           </div>
           <div class="col-md-4">
               <h3>Contact</h3>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <p class="pull-right"><a href="#">Revenir en haut</a></p>
-        <p>&copy; 2016 Association Solidaridade France Portugal</a></p>
+        <p>&copy; 2016 Association Solidariedade France Portugal</a></p>
       </div>
     </footer>
 
