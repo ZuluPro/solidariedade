@@ -14,18 +14,18 @@ server {
     }
 
     location / {
-        root /var/www/;
+        root /var/www/solidariedade/;
         uwsgi_pass solidariedade;
         include uwsgi_params;
     }
 
     location = /robots.txt {
-        root /var/www/;
+        root /var/www/solidariedade/;
         access_log off;
         log_not_found off;
     }
     location ~ ^/static/ {
-        root /var/www/;
+        root /var/www/solidariedade/;
         autoindex   on;
         add_header Pragma public;
         add_header Cache-Control "public, must-revalidate, proxy-revalidate";
@@ -35,6 +35,12 @@ server {
 server {
     listen 443 ssl;
     server_name {{ server_url }}; 
+
+    location / {
+        root /var/www/solidariedade/;
+        uwsgi_pass solidariedade;
+        include uwsgi_params;
+    }
 
     # Log
     access_log /var/log/nginx/solidariedade.log;
