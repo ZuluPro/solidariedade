@@ -47,8 +47,8 @@
                <li><a href="#">{% trans "Documents offciels" %}</a></li>
               </ul>
             </li>
-            <li role="presentation"><a href="#">{% trans "Nos actions" %}</a></li>
-            <li role="presentation"><a href="{% url 'zinnia:entry_archive_index' %}">{% trans "Blog" %}</a></li>
+            <li role="presentation"><a href="{% url "actions" %}">{% trans "Nos actions" %}</a></li>
+            <li role="presentation"><a href="{% url 'zinnia:entry_archive_index' %}">{% trans "Notre actualité" %}</a></li>
             <li role="presentation"><a href="{% url "contact" %}">{% trans "Contact" %}</a></li>
             <li role="presentation"><a href="{% url "donation" %}">{% trans "Vous souhaitez nous aider ?" %}</a></li>
           </ul>

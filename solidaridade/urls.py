@@ -14,6 +14,7 @@ urlpatterns = patterns(
     url(r'^values$', 'showcase.views.values', name='values'),
     url(r'^contact$', 'contact.views.contact', name='contact'),
     url(r'^donation$', 'donation.views.donation', name='donation'),
+    url(r'^actions$', 'blog.views.actions', name='actions'),
     url(r'blog/', include('zinnia.urls', namespace='zinnia')),
 )
 

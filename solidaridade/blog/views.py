@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from zinnia.models import Entry
 
-# Create your views here.
+
+def actions(request):
+    actions = Entry.objects.filter(categories__slug='action')
+    return render(request, 'actions.html', {
+        'object_list': actions,
+    })
