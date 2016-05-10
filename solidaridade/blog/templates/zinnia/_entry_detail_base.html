@@ -17,11 +17,10 @@
   </div>
   {% endif %}
 
-  <div class="{% if object.image %}col-md-9{% else %}col-md-12{% endif %}">
+  <div class="col-md-12">
   <small>
   {% block entry-header %}
    <div class="entry-header">
-    {% if not continue_reading and object.image %}<img class="entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" align="right"/>{% endif %}
      {% block entry-title %}<h1 class="entry-title"><a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title|widont }}</a></h1>{% endblock entry-title %}
      {% block entry-info %}<p class="entry-details">
       {% block entry-published %}{% trans "Publié le" %} <abbr class="published" title="{{ object.creation_date|date:"c" }}">{{ object.creation_date|date:"DATE_FORMAT" }}</abbr>{% endblock entry-published %}

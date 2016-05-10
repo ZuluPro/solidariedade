@@ -112,6 +112,12 @@ body {
   padding-top: 25px;
   padding-bottom: 25px;
 }
+.history a, .container-light a {
+  color: #51433D;
+}
+.container-light a:hover, .container-light a:focus {
+  color: #201A18;
+}
 .history .alert {
   font-size: 15px;
   margin: 2px;
@@ -309,4 +315,8 @@ footer a {
 .btn-default.active, .btn-default:active {
   background-color: #FFB500;
   border-color: #FFB000;
+}
+
+.hentry img {
+    padding: 5px;
 }

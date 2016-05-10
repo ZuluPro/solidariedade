@@ -43,82 +43,88 @@
 {% block body-class %}entry entry-{{ object.pk }}{% if object.featured %} featured{% endif %} year-{{ object.creation_date|date:"Y" }} month-{{ object.creation_date|date:"m" }} week-{{ object.creation_date|date:"W" }} day-{{ object.creation_date|date:"d" }}{% endblock body-class %}
 
 {% block body %}
+<div class="history">
+ <div class="container">
 
-{% block entry-content %}
-  {% include object.content_template with object_content=object.html_content %}
-{% endblock entry-content %}
+  {% block entry-content %}
+    {% include object.content_template with object_content=object.html_content %}
+  {% endblock entry-content %}
+  
+  {% block entry-widgets %}
+  <section>
+  <div class="content">
+   <div class="row">
+    {% block entry-previous-entry %}
+    {% with previous_entry=object.previous_entry %}
+    {% if previous_entry %}
+    <div class="col-md-3">
+      <h4>{% trans "Previous entry" %}</h4>
+      <p>
+        <a href="{{ previous_entry.get_absolute_url }}" title="{{ previous_entry.title }}" rel="prev">
+          {{ previous_entry.title }}
+        </a>
+      </p>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endblock entry-previous-entry %}
 
-{% block entry-widgets %}
-<section>
-<div class="content">
- <div class="pure-g">
-  {% block entry-previous-entry %}
-  {% with previous_entry=object.previous_entry %}
-  {% if previous_entry %}
-  <div class="pure-u-1-4">
-    <h4>{% trans "Previous entry" %}</h4>
-    <p>
-      <a href="{{ previous_entry.get_absolute_url }}" title="{{ previous_entry.title }}" rel="prev">
-        {{ previous_entry.title }}
-      </a>
-    </p>
-  </div>
-  {% endif %}
-  {% endwith %}
+    {% block entry-related-entries %}
+    {% with entry_related=object.related_published %}
+    {% if entry_related %}
+    <div class="col-md-9">
+      <h4>{% trans "Related entries" %}</h4>
+      <ul class="no-bullet">
+        {% for entry in entry_related %}
+        <li>
+  	<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endblock entry-related-entries %}
 
-  {% endblock entry-previous-entry %}
-  {% block entry-related-entries %}
-  {% with entry_related=object.related_published %}
-  {% if entry_related %}
-  <div class="pure-u-1-4">
-    <h4>{% trans "Related entries" %}</h4>
-    <ul class="no-bullet">
-      {% for entry in entry_related %}
-      <li>
-	<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
+    {% block entry-similar-entries %}
+    <div class="pure-u-1 pure-u-lg-1-4">
+      <h4>{% trans "Similar entries" %}</h4>
+      {% get_similar_entries %}
+    </div>
+    {% endblock entry-similar-entries %}
+
+    {% block entry-next-entry %}
+    {% with next_entry=object.next_entry %}
+    <div class="pure-u-1 pure-u-lg-1-4">
+    {% if next_entry %}
+      <h4>{% trans "Next entry" %}</h4>
+      <p>
+        <a href="{{ next_entry.get_absolute_url }}" title="{{ next_entry.title }}" rel="next">
+          {{ next_entry.title }}
+        </a>
+      </p>
+    {% else %}
+      <p></p>
+    {% endif %}
+    </div>
+    {% endwith %}
+    {% endblock entry-next-entry %}
+   </div>
   </div>
-  {% endif %}
-  {% endwith %}
-  {% endblock entry-related-entries %}
-  {% block entry-similar-entries %}
-  <div class="pure-u-1 pure-u-lg-1-4">
-    <h4>{% trans "Similar entries" %}</h4>
-    {% get_similar_entries %}
-  </div>
-  {% endblock entry-similar-entries %}
-  {% block entry-next-entry %}
-  {% with next_entry=object.next_entry %}
-  <div class="pure-u-1 pure-u-lg-1-4">
-  {% if next_entry %}
-    <h4>{% trans "Next entry" %}</h4>
-    <p>
-      <a href="{{ next_entry.get_absolute_url }}" title="{{ next_entry.title }}" rel="next">
-        {{ next_entry.title }}
-      </a>
-    </p>
-  {% else %}
-    <p></p>
-  {% endif %}
-  </div>
-  {% endwith %}
-  {% endblock entry-next-entry %}
+  </section>
+  {% endblock entry-widgets %}
+
  </div>
-{% endblock entry-widgets %}
-
+</div>
 {% endblock body %}
 
-{% block admin-tools %}
-{% if perms.zinnia.change_entry %}
-<li>
-  <a href="{% url 'admin:zinnia_entry_change' object.pk %}" title="{% trans "Edit the entry" %}">
-    <i class="fi-pencil"></i>
-    {% trans "Edit the entry" %}
-  </a>
-</li>
-{% endif %}
-{% endblock admin-tools %}
-</div>
-</section>
+ {% block admin-tools %}
+  {% if perms.zinnia.change_entry %}
+  <li>
+    <a href="{% url 'admin:zinnia_entry_change' object.pk %}" title="{% trans "Edit the entry" %}">
+      <i class="fi-pencil"></i>
+      {% trans "Edit the entry" %}
+    </a>
+  </li>
+  {% endif %}
+ {% endblock admin-tools %}
