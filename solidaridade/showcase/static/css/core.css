@@ -107,6 +107,7 @@ body {
   margin-left: 10px;
 }
 .history, .container-light {
+  text-align: justify;
   background: #FFD97C;
   font-size: 20px;
   padding-top: 25px;
@@ -114,6 +115,7 @@ body {
 }
 .history a, .container-light a {
   color: #51433D;
+  text-decoration: underline;
 }
 .container-light a:hover, .container-light a:focus {
   color: #201A18;
@@ -129,6 +131,7 @@ body {
 
 .featurette {
   margin: 40px 0;
+  font-size: 17px;
 }
 
 .featurette-divider {
@@ -271,6 +274,7 @@ footer a {
   padding-top: 3px;
   padding-bottom: 3px;
   background: #FFB500;
+  text-decoration: none;
   /*
   border-width: 5px;
   border: #C66D34;
