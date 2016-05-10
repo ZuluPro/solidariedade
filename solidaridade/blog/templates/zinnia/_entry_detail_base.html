@@ -17,7 +17,7 @@
   </div>
   {% endif %}
 
-  <div class="col-md-12">
+  <div class="{% if object.image and continue_reading %}col-md-9{% else %}col-md-12{% endif %}">
   <small>
   {% block entry-header %}
    <div class="entry-header">
