@@ -121,8 +121,12 @@ body {
 /* Featurettes
 ------------------------- */
 
+.featurette {
+  margin: 40px 0;
+}
+
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 40px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -133,6 +137,9 @@ body {
 }
 .featurette li {
   font-size: 20px;
+}
+.featurette-image {
+  border-radius: 10px;
 }
 
 

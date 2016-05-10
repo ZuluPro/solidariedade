@@ -3,10 +3,9 @@ from zinnia.models import Entry
 
 
 def showcase(request):
-    portraits = Entry.objects.filter(categories__title='Portrait',
-                                     status=2)
+    entry = Entry.objects.filter(status=2).exclude(image='').last()
     return render(request, 'showcase.html', {
-        'portraits': portraits
+        'last_entry': entry
     })
 
 

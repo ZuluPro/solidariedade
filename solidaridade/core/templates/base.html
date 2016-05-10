@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title></title>
+    <title>Solidariedade France Portugal{% block title %}{% endblock title %}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
@@ -64,15 +64,15 @@
             <h3>Solidariedade France Portugal</h3>
           </div>
           <div class="col-md-4">
-              <h3>Contact</h3>
+              <h3>{% trans "Contact" %}</h3>
               27 les prés d'andy, Saint-Germain Laxis 77950, France
           </div>
           <div class="col-md-4">
-              <h3>Je fais un don</h3>
-              <button class="btn btn-default">Aider</button>
+              <h3>{% trans "Je fais un don" %}</h3>
+              <a class="btn btn-default" href="{% url "donation" %}">{% trans "Aider" %}</a>
           </div>
         </div>
-        <p class="pull-right"><a href="#">Revenir en haut</a></p>
+        <p class="pull-right"><a href="#">{% trans "Revenir en haut" %}</a></p>
         <p>&copy; 2016 Association Solidariedade France Portugal</a></p>
       </div>
     </footer>

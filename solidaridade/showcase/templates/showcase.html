@@ -22,7 +22,6 @@
        <div class="container">
          <div class="carousel-caption">
            <h1>{% trans "Mais aussi un soutien au bien-être de tous les enfants" %}</h1>
-           <p>{% blocktrans %}{% endblocktrans %}</p>
            <p><a class="btn btn-lg btn-primary" href="{% url "engagement" %}?section=children" role="button">{% trans "Voir plus" %}</a></p>
          </div>
        </div>
@@ -42,32 +41,31 @@
 
 <div class="container marketing">
   <!-- START THE FEATURETTES -->
-  {% for portrait in portraits %}
   <div class="row featurette">
     <div class="col-md-7">
-        <h2 class="featurette-heading">{{ portrait.title }}</h2>
-        <p class="lead">{{ portrait.excerpt }}</p>
-        <p><a class="btn btn-default" href="{{ portrait.get_absolute_url }}" role="button">Voir plus</a></p>
+        <h2 class="featurette-heading"><a href="{{ last_entry.get_absolute_url }}">{{ last_entry.title }}</a></h2>
+        <p>{% blocktrans with date=last_entry.creation_date %}Publié le {{ date }}{% endblocktrans %}</p>
+        <p class="lead">{{ last_entry.html_preview|safe }}</p>
+        <p><a class="btn btn-default" href="{{ last_entry.get_absolute_url }}" role="button">{% trans "Voir plus" %}</a></p>
     </div>
     <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" src="{{ portrait.image.url }}">
+      <img class="featurette-image img-responsive center-block" src="{{ last_entry.image.url }}">
     </div>
   </div>
   <hr class="featurette-divider">
-  {% endfor %}
 
   <div class="row featurette">
    <div class="col-md-7 col-md-push-5">
      <h2 class="featurette-heading">{% trans "Il existe d'autres façon d'aider" %}</h2>
      <ul>
-      <li>{% trans "Dépôt de vêtements dans les containers appropirés, disponible dans chaque ville" %}</li>
+      <li>{% trans "Dépôt de vêtements dans les containers appropriés, disponible dans chaque ville" %}</li>
       <li>{% trans "Faire des dons alimentaires aux associations locales ou internationnales" %}</li>
       <li>{% trans "Don de mobiliers aux associations (Emmaüs)" %}</li>
       <li>{% trans "Donner de son temps auprès de personnes dans le besoin" %}</li>
      </ul>
    </div>
    <div class="col-md-5 col-md-pull-7">
-     <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+       <img class="featurette-image img-responsive center-block" src="{% static "img/roupas.jpg" %}" alt="{% trans "Container à vêtements" %}">
    </div>
   </div>
 
@@ -80,10 +78,10 @@
       {% trans "C'est facile !" %}<br>
       {% trans "Juste un clic" %}
      </h2>
-     <a class="btn btn-primary">Aider</a>
+     <a class="btn btn-default" href="{% url "donation" %}">{% trans "Aider" %}</a>
    </div>
    <div class="col-md-5">
-     <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+       <img class="featurette-image img-responsive center-block" src="{% static "img/keyboard.jpg" %}" alt="Generic placeholder image">
    </div>
   </div>
   <!-- /END THE FEATURETTES -->
