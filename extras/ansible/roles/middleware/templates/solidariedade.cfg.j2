@@ -29,3 +29,11 @@ cache_location = {{ hostvars[groups['cache'][0]]['redis_bind_addr'] }}:6379:0
 {% endif %}
 
 session_engine = django.contrib.sessions.backends.cache
+
+email_backend = {{ email_backend }}
+email_host = {{ email_host }}
+email_port = {{ email_port }}
+email_host_user = {{ email_host_user }}
+email_host_password = {{ email_host_password }}
+email_use_tls = {{ email_use_tls }}
+email_use_ssl = {{ email_use_ssl }}

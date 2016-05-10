@@ -58,6 +58,14 @@ DEFAULT_CONFIG = {
     # Test
     'test_runner': 'django.test.runner.DiscoverRunner',
     'internal_ips': '127.0.0.1',
+    # Email
+    'email_backend': 'django.core.mail.backends.console.EmailBackend',
+    'email_host': 'localhost',
+    'email_port': '25',
+    'email_host_user': '',
+    'email_host_password': '',
+    'email_use_tls': 'False',
+    'email_use_ssl': 'False',
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('SOLIDARIEDADE_CONFIG_FILE',

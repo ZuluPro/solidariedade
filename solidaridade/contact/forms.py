@@ -16,7 +16,7 @@ class ContactForm(forms.Form):
 
     def send_mail(self):
         data = self.cleaned_data
-        send_mail(subject='[Mail from website] %s',
+        send_mail(subject='[Mail from website] %s' % data['name'],
                   message=data['message'],
                   from_email=data.get('email', 'noreply@asfp.org'),
                   recipient_list=(settings.CONTACT_EMAIL,))

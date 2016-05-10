@@ -99,7 +99,15 @@ LANGUAGES = [
     ('en', _('English')),
 ]
 
-CONTACT_EMAIL = 'assolidaridade@gmail.com'
+CONTACT_EMAIL = 'contact@solidariedade-france-portugal.org'
+EMAIL_BACKEND = CONFIG.get('DEFAULT', 'email_backend')
+EMAIL_HOST = CONFIG.get('DEFAULT', 'email_host')
+EMAIL_PORT = CONFIG.get('DEFAULT', 'email_port')
+EMAIL_HOST_USER = CONFIG.get('DEFAULT', 'email_host_user')
+EMAIL_HOST_PASSWORD = CONFIG.get('DEFAULT', 'email_host_password')
+EMAIL_USE_TLS = CONFIG.getboolean('DEFAULT', 'email_use_tls')
+EMAIL_USE_SSL = CONFIG.getboolean('DEFAULT', 'email_use_ssl')
+
 
 DBBACKUP_STORAGE_OPTIONS = {
     'location': CONFIG.get('DEFAULT', 'backup_dir')
