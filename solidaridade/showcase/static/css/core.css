@@ -22,7 +22,75 @@ body {
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
+@media (min-width: 500px)
+.navbar-right {
+    float: right!important;
+    margin-right: -15px;
+}
+nav.navbar {
+  min-height: 100px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-bottom: 0px;
+  color: #F5F5F5;
+  font-variant: small-caps;
+  border-width: 0px;
+  background-color: inherit;
+}
+.navbar-header {
+  height: 100px;
+}
+.navbar-header button.navbar-toggle {
+  margin-top: 30px;
+  border-color: #C66D34;
+  background-color: #C66D34;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #984B4B;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: #FFB500;
+}
+.navbar-nav img {
+  height: 100%;
+}
+.navbar-nav>li>a {
+  background-color: inherit;
+  padding-top: 45px;
+  padding-bottom: 30px;
+  font-size: 22px;
+  height: 100px;
+}
+.navbar-nav>li:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
 
+.navbar-nav>li>a:hover {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: #C66D34;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+}
+.navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  border-width: 0px;
+  background-color: inherit !important;
+  border-bottom: #C66D34;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+}
+.navbar-nav li.dropdown>ul {
+  width: 100%;
+  color: #5a5a5a;
+  background: #FFB500;
+  border-width: 0px;
+  font-size: 19px;
+}
+.navbar-nav li.dropdown>ul>li>a:hover {
+  background: #FFA000;
+  background-image: initial;
+}
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
   position: absolute;
@@ -51,7 +119,6 @@ body {
 /* Carousel base class */
 .carousel {
   height: 500px;
-  margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -107,19 +174,20 @@ body {
   margin-left: 10px;
 }
 .history, .container-light {
-  text-align: justify;
   background: #FFD97C;
   font-size: 20px;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-.history a, .container-light a {
+/*
+.container-light a {
   color: #51433D;
   text-decoration: underline;
 }
 .container-light a:hover, .container-light a:focus {
   color: #201A18;
 }
+*/
 .history .alert {
   font-size: 15px;
   margin: 2px;
@@ -155,6 +223,21 @@ body {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
+.navbar-brand {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+.featurette-heading {
+  font-size: 50px;
+}
+.featurette ul {
+  list-style: none;
+}
+@media (max-width: 1024px) {
+  .featurette {
+    text-align: center;
+  }
+}
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
@@ -181,15 +264,6 @@ body {
     line-height: 1.4;
   }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
-  }
 }
 
 /* Top Bar */
@@ -297,30 +371,19 @@ footer a {
   margin: 0px;
 }
 
-.btn-default {
-  text-shadow: 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
-  background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
-  background-image: linear-gradient(to bottom,#FDF162 0,#FFC624 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-  background-repeat: repeat-x;
-  border-color: #DAB500;
-}
-
-.btn-default:focus, .btn-default:hover {
-  background-color: #FFC624;
-  background-position: 0 -15px;
-  color: #333;
-  border-color: #DAB500;
-}
-
-.btn-default.active, .btn-default:active {
-  background-color: #FFB500;
-  border-color: #FFB000;
-}
-
 .hentry img {
     padding: 5px;
+}
+
+.btn-xl {
+  font-size: 23px;
+  padding: 12px 17px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.btn-xxl {
+  font-size: 25px;
+  padding: 15px 20px;
+  line-height: 1.3333333;
+  border-radius: 6px;
 }

@@ -30,5 +30,5 @@ TEMPLATES[0]['OPTIONS']['context_processors'] = \
     ['django.template.context_processors.debug'] + TEMPLATES[0]['OPTIONS']['context_processors']
 
 DEBUG_TOOLBAR_CONFIG = {
-    'JQUERY_URL': STATIC_URL + 'admin_tools/js/jquery/jquery.min.js'
+    'JQUERY_URL': STATIC_URL + 'js/jquery.js'
 }
