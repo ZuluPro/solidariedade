@@ -3,7 +3,7 @@ from zinnia.models import Entry
 
 
 def showcase(request):
-    entry = Entry.objects.filter(status=2).exclude(image='').last()
+    entry = Entry.published.exclude(image='').first()
     return render(request, 'showcase.html', {
         'last_entry': entry
     })

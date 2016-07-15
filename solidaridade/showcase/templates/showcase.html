@@ -47,12 +47,12 @@
   <div class="row featurette">
     <div class="col-md-7">
         <h2 class="featurette-heading"><a href="{{ last_entry.get_absolute_url }}">{{ last_entry.title }}</a></h2>
-        <p>{% blocktrans with date=last_entry.creation_date %}Publié le {{ date }}{% endblocktrans %}</p>
+        <p>{% blocktrans with date=last_entry.creation_date|date %}Publié le {{ date }}{% endblocktrans %}</p>
         <p class="lead">{{ last_entry.html_preview|safe }}</p>
         <p><a class="btn btn-primary btn-xl" href="{{ last_entry.get_absolute_url }}" role="button">{% trans "Voir plus" %}</a></p>
     </div>
     <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" src="{{ last_entry.image.url }}">
+      <img class="featurette-image img-responsive featurette-image-entry center-block" src="{{ last_entry.image.url }}">
     </div>
   </div>
   <hr class="featurette-divider">

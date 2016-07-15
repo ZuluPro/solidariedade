@@ -218,6 +218,9 @@ nav.navbar {
 .featurette-image {
   border-radius: 10px;
 }
+.featurette-image-entry {
+  max-height: 400px
+}
 
 
 /* RESPONSIVE CSS
