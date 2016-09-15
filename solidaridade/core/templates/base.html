@@ -1,6 +1,6 @@
 {% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,11 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Solidariedade France Portugal{% block title %}{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %} Solidariedade France Portugal</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <script src="{% static "js/jquery.js" %}"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--[if gt IE 9]>
@@ -91,7 +92,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static "js/jquery.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
