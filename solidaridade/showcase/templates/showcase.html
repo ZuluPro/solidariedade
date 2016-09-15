@@ -45,14 +45,24 @@
 <div class="container marketing">
   <!-- START THE FEATURETTES -->
   <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive featurette-image-entry center-block" src="{{ latest_entries.0.image.url }}">
+    </div>
     <div class="col-md-7">
-        <h2 class="featurette-heading"><a href="{{ last_entry.get_absolute_url }}">{{ last_entry.title }}</a></h2>
-        <p>{% blocktrans with date=last_entry.creation_date|date %}Publié le {{ date }}{% endblocktrans %}</p>
-        <p class="lead">{{ last_entry.html_preview|safe }}</p>
-        <p><a class="btn btn-primary btn-xl" href="{{ last_entry.get_absolute_url }}" role="button">{% trans "Voir plus" %}</a></p>
+        <h2 class="featurette-heading"><a href="{{ latest_entries.0.get_absolute_url }}">{{ latest_entries.0.title }}</a></h2>
+        <p class="lead">{{ latest_entries.0.html_preview|safe }}</p>
+        <p><a class="btn btn-primary btn-xl" href="{{ latest_entries.0.get_absolute_url }}" role="button">{% trans "Voir plus" %}</a></p>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading"><a href="{{ latest_entries.1.get_absolute_url }}">{{ latest_entries.1.title }}</a></h2>
+        <p class="lead">{{ latest_entries.1.html_preview|safe }}</p>
+        <p><a class="btn btn-primary btn-xl" href="{{ latest_entries.1.get_absolute_url }}" role="button">{% trans "Voir plus" %}</a></p>
     </div>
     <div class="col-md-5">
-      <img class="featurette-image img-responsive featurette-image-entry center-block" src="{{ last_entry.image.url }}">
+      <img class="featurette-image img-responsive featurette-image-entry center-block" src="{{ latest_entries.1.image.url }}">
     </div>
   </div>
   <hr class="featurette-divider">

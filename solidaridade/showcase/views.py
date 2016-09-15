@@ -3,9 +3,9 @@ from zinnia.models import Entry
 
 
 def showcase(request):
-    entry = Entry.published.exclude(image='').first()
+    entries = Entry.published.exclude(image='').order_by('-publication_date')[:2]
     return render(request, 'showcase.html', {
-        'last_entry': entry
+        'latest_entries': entries
     })
 
 
