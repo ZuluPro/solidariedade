@@ -113,3 +113,7 @@ EMAIL_USE_SSL = CONFIG.getboolean('DEFAULT', 'email_use_ssl')
 DBBACKUP_STORAGE_OPTIONS = {
     'location': CONFIG.get('DEFAULT', 'backup_dir')
 }
+
+ZINNIA_ENTRY_CONTENT_TEMPLATES = [
+    ('zinnia/_entry_detail_gallery.html', _('Gallery template')),
+]

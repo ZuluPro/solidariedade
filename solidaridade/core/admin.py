@@ -30,6 +30,7 @@ class EntryAdmin(EntryAdminTinyMCE):
                 'lead',
                 'content',
                 ('image', 'image_caption'),
+                'content_template'
             )}),
         (_('Publication'), {
             'fields': ('creation_date', 'sites'),
