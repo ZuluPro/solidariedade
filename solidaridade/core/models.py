@@ -15,6 +15,9 @@ class Image(models.Model):
     preview.short_description = 'Image'
     preview.allow_tags = True
 
+    def smart_url(self):
+        return self.file.url.replace('https://', '//')
+
 
 class Audio(models.Model):
     file = models.FileField()
@@ -32,3 +35,6 @@ class Audio(models.Model):
         return self.html_template % self.file.url
     listen.short_description = 'Audio'
     listen.allow_tags = True
+
+    def smart_url(self):
+        return self.file.url.replace('https://', '//')
