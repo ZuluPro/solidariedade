@@ -17,7 +17,6 @@ urlpatterns = patterns(
     url(r'^actions$', 'blog.views.actions', name='actions'),
     url(r'blog/', include('zinnia.urls', namespace='zinnia')),
     url(r'^tinymce/', include('tinymce.urls')),
-
     url(r'^tinymce/zinnia/', include('zinnia_tinymce.urls')),
 )
 
