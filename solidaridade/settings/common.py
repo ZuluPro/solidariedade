@@ -43,8 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'tinymce',
     'zinnia',
-    'zinnia_wymeditor',
+    'zinnia_tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
