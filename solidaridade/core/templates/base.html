@@ -1,4 +1,5 @@
 {% load static i18n %}
+{% load favicon %}
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -9,6 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="">
+    {% get_favicons "icon/" %}
 
     <title>{% block title %}{% endblock title %} Solidariedade France Portugal</title>
 

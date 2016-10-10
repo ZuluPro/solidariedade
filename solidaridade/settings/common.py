@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'tinymce',
     'zinnia',
     'zinnia_tinymce',
+    'favicon',
 )
 
 MIDDLEWARE_CLASSES = (
