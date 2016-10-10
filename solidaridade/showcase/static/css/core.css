@@ -229,6 +229,18 @@ nav.navbar {
 .navbar-brand {
   padding-top: 10px;
   padding-bottom: 0px;
+  text-align: center;
+  color: #484848;
+  /*    color: #ffffff; */
+}
+.navbar-brand img {
+  background-color: #484848;
+  border-radius: 30px;
+  /*
+  border-style: solid;
+  border-width: 2px;
+  border-color: #b98400;
+  */
 }
 .featurette-heading {
   font-size: 50px;
