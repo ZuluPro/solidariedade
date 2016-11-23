@@ -1,3 +1,4 @@
+Django<1.10
 pillow
 django-blog-zinnia>=0.15.1
 admin-tools-zinnia>=0.1
@@ -7,3 +8,5 @@ zinnia-wysiwyg-tinymce
 django-dbbackup
 django-request
 django-super-favicon
+django-phonenumber-field
+django-countries

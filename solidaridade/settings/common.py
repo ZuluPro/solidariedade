@@ -47,6 +47,9 @@ INSTALLED_APPS = (
     'zinnia',
     'zinnia_tinymce',
     'favicon',
+    'membership',
+    'django_countries',
+    'phonenumber_field',
 )
 
 MIDDLEWARE_CLASSES = (

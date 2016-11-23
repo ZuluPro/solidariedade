@@ -1,5 +1,7 @@
+from __future__ import unicode_literals
+
 from django.contrib import admin
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from zinnia.models import Entry
 from zinnia.admin import filters

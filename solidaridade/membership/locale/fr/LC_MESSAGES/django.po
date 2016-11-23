@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-23 16:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:28
+msgid "Subscription"
+msgstr "Souscription"
+
+#: apps.py:9
+#, fuzzy
+#| msgid "members"
+msgid "Membership"
+msgstr "Adhésion"
+
+#: models.py:13
+msgid "name"
+msgstr "nom"
+
+#: models.py:14
+msgid "description"
+msgstr "description"
+
+#: models.py:16
+msgid "entry fees"
+msgstr "droits d'entrée"
+
+#: models.py:17
+msgid "monthly contribution"
+msgstr "cotisation mensuelle"
+
+#: models.py:20
+msgid "title"
+msgstr "titre"
+
+#: models.py:21
+msgid "titles"
+msgstr "titres"
+
+#: models.py:29
+msgid "first name"
+msgstr "prénom"
+
+#: models.py:30
+msgid "last name"
+msgstr "nom"
+
+#: models.py:31
+msgid "birth date"
+msgstr "date de naissance"
+
+#: models.py:33
+msgid "country"
+msgstr "pays"
+
+#: models.py:34
+msgid "address"
+msgstr "adresse"
+
+#: models.py:35
+msgid "postal code"
+msgstr "code postal"
+
+#: models.py:36
+msgid "city"
+msgstr "ville"
+
+#: models.py:38
+msgid "phone number"
+msgstr "numéro de téléphone"
+
+#: models.py:39
+msgid "email"
+msgstr "email"
+
+#: models.py:43
+msgid "subscription date"
+msgstr "date de souscription"
+
+#: models.py:45
+msgid "validated"
+msgstr "validé"
+
+#: models.py:46
+msgid "validation date"
+msgstr "date de validation"
+
+#: models.py:48
+msgid "unsubscripted"
+msgstr "désincription"
+
+#: models.py:49
+msgid "unsubscription date"
+msgstr "date de désincription"
+
+#: models.py:52 models.py:71
+msgid "member"
+msgstr "membre"
+
+#: models.py:53
+msgid "members"
+msgstr "membres"
+
+#: models.py:60
+msgid "Paypal"
+msgstr "Paypal"
+
+#: models.py:61
+msgid "check"
+msgstr "chèque"
+
+#: models.py:62
+msgid "cash"
+msgstr "cash"
+
+#: models.py:63
+msgid "natural"
+msgstr "nature"
+
+#: models.py:64
+msgid "bank transfer"
+msgstr "virement banquaire"
+
+#: models.py:65
+msgid "electronic payment"
+msgstr "payment électronique"
+
+#: models.py:72
+msgid "note"
+msgstr "note"
+
+#: models.py:73
+msgid "sum"
+msgstr "somme"
+
+#: models.py:75
+msgid "due date"
+msgstr "date espérée"
+
+#: models.py:76
+msgid "paid"
+msgstr "payée"
+
+#: models.py:77
+msgid "payment date"
+msgstr "date de paiement"
+
+#: models.py:78
+msgid "payment method"
+msgstr "méthode de paiement"
+
+#: models.py:81
+msgid "contribution"
+msgstr "cotisation"
+
+#: models.py:82
+msgid "contributions"
+msgstr "cotisations"
