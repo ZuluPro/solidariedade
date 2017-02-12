@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="row brown">
+  <h1>{% trans "Faire un don" %}</h1>
+</div>
+<div class="history">
+ <div class="container">
+  {{ wizard.management_form }}
+  <div class="row">
+   <div class="col-md-4 col-md-offset-4">
+    <fieldset>
+       {{ wizard.form.render }}
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% trans "Validate" %}</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock %}
+

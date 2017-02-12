@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.timezone import now
 
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
@@ -26,9 +28,8 @@ class Title(models.Model):
 
 @python_2_unicode_compatible
 class Member(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name=_("first name"))
-    last_name = models.CharField(max_length=50, verbose_name=_("last name"))
-    birth_date = models.DateField(verbose_name=_("birth date"))
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    # birth_date = models.DateField(null=True, verbose_name=_("birth date"))
 
     country = CountryField(verbose_name=_("country"))
     address = models.TextField(max_length=300, verbose_name=_("address"))
@@ -36,11 +37,10 @@ class Member(models.Model):
     city = models.CharField(max_length=70, verbose_name=_("city"))
 
     phone_number = PhoneNumberField(verbose_name=_("phone number"))
-    email = models.EmailField(verbose_name=_("email"))
 
     title = models.ForeignKey(Title)
 
-    subscription_date = models.DateField(verbose_name=_("subscription date"))
+    subscription_date = models.DateField(default=now, blank=True, null=True, verbose_name=_("subscription date"))
 
     validated = models.BooleanField(default=False, verbose_name=_('validated'))
     validation_date = models.DateField(blank=True, null=True, verbose_name=_("validation date"))
@@ -54,6 +54,18 @@ class Member(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.first_name, self.last_name)
+
+    @property
+    def first_name(self):
+        return self.user.first_name
+
+    @property
+    def last_name(self):
+        return self.user.last_name
+
+    @property
+    def email(self):
+        return self.user.email
 
 
 METHODS = (
@@ -72,6 +84,7 @@ class Contribution(models.Model):
     note = models.TextField(max_length=500, null=True, blank=True, verbose_name=_("note"))
     sum = models.PositiveIntegerField(verbose_name=_("sum"))
 
+    pledge_date = models.DateField(auto_now_add=True, verbose_name=_("pledge date"))
     due_date = models.DateField(blank=True, null=True, verbose_name=_("due date"))
     paid = models.BooleanField(default=False, verbose_name=_('paid'))
     payment_date = models.DateField(blank=True, null=True, verbose_name=_("payment date"))
@@ -83,3 +96,6 @@ class Contribution(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.member, self.sum)
+
+    def get_public_id(self):
+        return "{}{:0>5}".format(self.pledge_date.strftime('%Y%m%d'), self.member.id)

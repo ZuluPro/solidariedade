@@ -19,10 +19,10 @@ class MemberAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                ('first_name', 'last_name', 'birth_date', 'title',),
+                ('user', 'title',),
                 ('country', 'postal_code', 'city'),
                 'address',
-                ('phone_number', 'email')
+                ('phone_number',)
             ),
         }),
         (_('Subscription'), {

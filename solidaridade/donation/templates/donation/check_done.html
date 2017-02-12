@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="row brown">
+  <h1>{% trans "Faire un don" %}</h1>
+</div>
+<div class="history">
+ <div class="container">
+   <h2>{% trans "Merci pour cette promesse de don" %}</h2>
+   <h3>{% blocktrans with id=contribution.get_public_id %}Votre numéro de transaction est le {{ id }}{% endblocktrans %}</h3>
+   <h3>{% trans "Nous attendons votre chèque à l'adresse suivante:" %}</h3>
+   <h4>
+    <address>
+     <strong>{% trans '"A l\'ordre de "ASFP"' %}</strong><br>
+     27 les prés d'andy<br>
+     77950 Saint-Germain Laxis, France<br>
+    </address>
+    <small>{% trans "Attention seuls les chèques issus de banques françaises sont acceptés" %}</small>
+   </h4>
+ </div>
+</div>
+{% endblock %}

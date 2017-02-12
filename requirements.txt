@@ -10,3 +10,5 @@ django-request
 django-super-favicon
 django-phonenumber-field
 django-countries
+django-paypal
+django-formtools

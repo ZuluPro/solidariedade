@@ -66,6 +66,8 @@ DEFAULT_CONFIG = {
     'email_host_password': '',
     'email_use_tls': 'False',
     'email_use_ssl': 'False',
+    #
+    'paypal_test': 'False',
 }
 # Choose conf file to read
 CONFIG_FILE = os.environ.get('SOLIDARIEDADE_CONFIG_FILE',

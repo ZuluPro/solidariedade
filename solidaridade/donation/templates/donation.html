@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
 {% block body %}
 <div class="row brown">
   <h1>{% trans "Faire un don" %}</h1>
 </div>
 <div class="history">
  <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-     <h2>{% trans "Par chèque :" %}</h2>
-      <address>
-        <strong>{% trans "A l'ordre de \"ASFP\"" %}</strong><br>
-        27 les prés d'andy<br>
-        77950 Saint-Germain Laxis, France<br>
-      </address>
-    </div>
-    <div class="col-md-4">
-     <h2>{% trans "Par virement :" %}</h2>
-      <p><b>IBAN</b><br>FR89 2004 1010 1251 5793 7U03 321</p>
-      <p><b>BIC</b><br>PSSTFRPPSCE<p/>
-    </div>
-    <div class="col-md-4">
-     <h2>{% trans "Adhérez :"%}</h2>
-    </div>
-  </div>
+  <form action="" method="POST">
+   {% csrf_token %}
+   {{ wizard.management_form }}
+   <div class="row">
+     <div class="col-md-4 col-md-offset-2">
+      <h2>{% trans "Donation" %}</h2>
+      <button name="{{ wizard.steps.current }}-donation_type" value="donation">{% trans "Aider poncuellement" %}</button>
+     </div>
+     <div class="col-md-4">
+      <h2>{% trans "Membership" %}</h2>
+      <button name="donation_type" value="membership">{% trans "S'impliquer dans le long terme" %}</button>
+     </div>
+   </div>
+  </form>
  </div>
 </div>
 {% endblock %}

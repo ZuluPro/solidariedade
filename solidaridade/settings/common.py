@@ -50,6 +50,8 @@ INSTALLED_APPS = (
     'membership',
     'django_countries',
     'phonenumber_field',
+    'paypal.standard.ipn',
+    'formtools'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,3 +123,5 @@ DBBACKUP_STORAGE_OPTIONS = {
 ZINNIA_ENTRY_CONTENT_TEMPLATES = [
     ('zinnia/_entry_detail_gallery.html', _('Gallery template')),
 ]
+
+PAYPAL_TEST = CONFIG.getboolean('DEFAULT', 'paypal_test')

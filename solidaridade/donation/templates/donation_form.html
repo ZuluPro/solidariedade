@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block body %}
+<div class="row brown">
+  <h1>{% trans "Faire un don" %}</h1>
+</div>
+<div class="history">
+ <div class="container">
+  <form class="form-horizontal" method="post">
+   {% csrf_token %}
+   {{ wizard.management_form }}
+   <input type="hidden" name="donation_type" value="{{ donation_type }}">
+   <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+     <fieldset>
+         {% for field in wizard.form %}
+             {% if field.errors %}
+                 <div class="control-group error">
+                     <label class="control-label">{{ field.label }}</label> 
+                     <div class="controls">{{ field }}
+                         <span class="help-inline">
+                             {% for error in  field.errors %}{{ error }}{% endfor %}
+                         </span>
+                     </div>
+                 </div>
+             {% else %}
+                 <div class="control-group">
+                     <label class="control-label">{{ field.label }}</label> 
+                     <div class="controls">{{ field }}
+                         {% if field.help_text %}
+                             <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                         {% endif %}
+                     </div>
+                 </div>
+             {% endif %}
+         {% endfor %}
+     </fieldset>
+     <input type="submit" value="{% trans "Suivant" %}"/>
+    </div>
+   </div>
+  </form>
+ </div>
+</div>
+{% endblock %}
