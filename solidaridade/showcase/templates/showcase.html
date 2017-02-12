@@ -67,22 +67,18 @@
   </div>
   <hr class="featurette-divider">
 
+  {% if display %}
   <div class="row featurette">
    <div class="col-md-7 col-md-push-5">
-     <h2 class="featurette-heading">{% trans "Il existe d'autres façons d'aider" %}</h2>
-     <ul>
-      <li>{% trans "Dépôts de vêtements dans les conteneurs appropriés, disponibles dans chaque ville" %}</li>
-      <li>{% trans "Dons alimentaires aux associations locales ou internationales" %}</li>
-      <li>{% trans "Dons de mobiliers aux associations (Emmaüs)" %}</li>
-      <li>{% trans "En donnant de son temps auprès de personnes dans le besoin" %}</li>
-     </ul>
+     <h2 class="featurette-heading">{{ display.title }}</h2>
+     {{ display.html|safe }}
    </div>
    <div class="col-md-5 col-md-pull-7">
-       <img class="featurette-image img-responsive center-block" src="{% static "img/roupas.jpg" %}" alt="{% trans "Container à vêtements" %}">
+       <img class="featurette-image img-responsive center-block" src="{{ display.image.smart_url }}" alt="{{ display.image_title }}">
    </div>
   </div>
-
   <hr class="featurette-divider">
+  {% endif %}
 
   <div class="row featurette">
    <div class="col-md-7">
