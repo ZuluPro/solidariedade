@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
 {% block body %}
 <div class="row brown">
   <h1>{% trans "Faire un don" %}</h1>
@@ -8,23 +12,60 @@
 <div class="history">
  <div class="container">
   <div class="row">
-    <div class="col-md-4">
-     <h2>{% trans "Par chèque :" %}</h2>
+   <div class="col-md-12">
+       <h2>{% trans "Pourquoi nous aider ?" %}</h2>
+       <p>{% trans "Si vous aussi vous pensez que le bien-être de soi passe aussi par celui d'autrui" %}</p>
+       <p>{% trans "S'il vous semble qu'aider son prochain fera de nous une meilleure communauté" %}</p>
+       <p>{% trans "S'il vous paraît nécessaire d'établir des relations avec les autres basées sur la confiance, la bienveillance et la coopération" %}</p>
+       <p>{% trans "L'Association Solidariedade France Portugal mène essentiellement des projets dans ce sens" %}</p>
+   </div>
+   <div class="col-md-12">
+    <h2>{% trans "Comment nous aider ?" %}</h2>
+    <div class="col-sm-6 col-md-4">
+     <h3>Par Paypal :</h3>
+     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="ZFPWMZAH3U9ZN">
+      <input class="btn btn-xl btn-primary" type="submit" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne" value="{% trans "Faire un don" %}">
+      <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+     </form>
+    </div>
+    <div class="col-sm-6 col-md-4">
+     <h3>Par chèque :</h3>
       <address>
-        <strong>{% trans "A l'ordre de \"ASFP\"" %}</strong><br>
+        <strong>A l'ordre de "ASFP"</strong><br>
         27 les prés d'andy<br>
         77950 Saint-Germain Laxis, France<br>
       </address>
     </div>
-    <div class="col-md-4">
-     <h2>{% trans "Par virement :" %}</h2>
+    <div class="col-sm-6 col-md-4">
+     <h3>Par virement :</h3>
       <p><b>IBAN</b><br>FR89 2004 1010 1251 5793 7U03 321</p>
-      <p><b>BIC</b><br>PSSTFRPPSCE<p/>
+      <p><b>BIC</b><br>PSSTFRPPSCE</p><p>
+    </p></div>
+    <!--
+    <div class="col-md-3">
+     <h3>Adhérez en ligne:</h3>
     </div>
-    <div class="col-md-4">
-     <h2>{% trans "Adhérez :"%}</h2>
-    </div>
+    -->
   </div>
+   </div>
+  <!--
+  <form action="" method="POST">
+   {% csrf_token %}
+   {{ wizard.management_form }}
+   <div class="row">
+     <div class="col-md-4 col-md-offset-2">
+      <h2>{% trans "Donation" %}</h2>
+      <button name="{{ wizard.steps.current }}-donation_type" value="donation">{% trans "Aider poncuellement" %}</button>
+     </div>
+     <div class="col-md-4">
+      <h2>{% trans "Membership" %}</h2>
+      <button name="donation_type" value="membership">{% trans "S'impliquer dans le long terme" %}</button>
+     </div>
+   </div>
+  </form>
+  -->
  </div>
 </div>
 {% endblock %}
