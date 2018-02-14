@@ -30,7 +30,6 @@ TEST_RUNNER = CONFIG.get('DEFAULT', 'test_runner')
 # Application definition
 INSTALLED_APPS = (
     'core',
-    'showcase',
     'contact',
     'donation',
     'blog',
@@ -50,6 +49,7 @@ INSTALLED_APPS = (
     'membership',
     'django_countries',
     'phonenumber_field',
+    'showcase',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,3 +121,6 @@ DBBACKUP_STORAGE_OPTIONS = {
 ZINNIA_ENTRY_CONTENT_TEMPLATES = [
     ('zinnia/_entry_detail_gallery.html', _('Gallery template')),
 ]
+TINYMCE_DEFAULT_CONFIG = {
+    'extended_valid_elements': 'audio,source',
+}
